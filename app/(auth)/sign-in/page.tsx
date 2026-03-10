@@ -1,6 +1,8 @@
 "use client";
 import AuthForm from "@/components/AuthForm";
+import { signInWithCredentials } from "@/lib/actions/auth";
 import { signInSchema } from "@/lib/validations";
+import { sign } from "crypto";
 import React from "react";
 
 const page = () => {
@@ -12,7 +14,7 @@ const page = () => {
         email: "",
         password: "",
       }}
-      onSubmit={() => {}}
+      onSubmit={signInWithCredentials}
     />
   );
 };
