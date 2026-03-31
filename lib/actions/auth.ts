@@ -24,6 +24,9 @@ export const signInWithCredentials = async (
 
     return { success: true };
   } catch (error) {
+    if (error && typeof error === "object" && "name" in error && error.name === "RedirectError") {
+      throw error;
+    }
     console.log(error, "Signin error");
     return { success: false, error: "Signin error" };
   }

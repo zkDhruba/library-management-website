@@ -10,15 +10,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        if (!credentials?.username || !credentials?.password) {
+        if (!credentials?.email || !credentials?.password) {
           return null;
         }
 
-        const email = credentials.email as string | undefined;
-
-        if (!email) {
-          return null;
-        }
+        const email = credentials.email as string;
 
         const user = await db
           .select()
