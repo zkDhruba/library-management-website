@@ -21,3 +21,9 @@ interface AuthCredentials {
   universityId: number;
   universityCard: string;
 }
+
+// CSS Module declarations
+declare module '*.css' {
+  const content: Record<string, string>;
+  export default content;
+}
